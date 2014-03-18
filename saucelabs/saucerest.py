@@ -52,6 +52,17 @@ class SauceRest(object):
             url="/%s/jobs/%s" % (self._username, id)
             )
 
+    def show_assets(self, id):
+        return self.rest(
+            '/%s/jobs/%s/assets' % (self._username, id)
+        )
+
+    def download_asset(self, id, filename):
+        return self.rest(
+            '/%s/jobs/%s/assets/%s' % (self._username, id, filename)
+        )
+
+
     def update_job(self, id, data):
         return self.rest(
             url="/%s/jobs/%s" % (self._username, id),
